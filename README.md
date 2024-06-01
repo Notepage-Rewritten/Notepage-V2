@@ -1,7 +1,10 @@
 # Notepage-V2
 notepage started as nodejs project years ago and was a texteditor which used html to edit text this is notepage V2  a customizable editor implementing markdown with proper linting and modding support
 
-## setting the dev environment up
+## setting the dev environment up for windows
+
+linux users please refer to: https://docs.fyne.io/started/
+
 in order to beeing able to work with fyne the following is needed to be installed:
 https://www.msys2.org/
 inside the msys window run the following commands:
