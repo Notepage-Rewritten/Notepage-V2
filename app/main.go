@@ -1,8 +1,9 @@
 package main
 
 import (
+	"de.notepage-rewritten.app/pkg/components"
+	"de.notepage-rewritten.app/pkg/views"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -11,12 +12,20 @@ func main() {
 	w := a.NewWindow("Hello")
 
 	hello := widget.NewLabel("Hello Fyne!")
-	w.SetContent(container.NewVBox(
-		hello,
-		widget.NewButton("Hi!", func() {
-			hello.SetText("Welcome :)")
-		}),
-	))
+	button := components.NewButton("test")
 
+	button.SetEventHandler(func() {
+		hello.SetText("Hello, World!")
+	})
+
+	mainWindow := views.NewMainWidnow()
+
+	container := components.NewContainer()
+	container.AppendToContainer(hello)
+	container.AppendToContainer(button.GetButton())
+
+	mainWindow.AddContentToWindow(container.GetContainer())
+
+	w.SetContent(mainWindow.GetWindow())
 	w.ShowAndRun()
 }
